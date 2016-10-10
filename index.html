@@ -1,0 +1,131 @@
+<!doctype html>
+<html ng-app="app" class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>VivaReal | Spotippos - Anúncios</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body ng-controller="AdsCtrl">
+        <header class="header">
+            <a href="#" class="header__brand">VivaReal</a>
+            <h1 class="header__title">Spotippos - Anúncios</h1>
+        </header>
+
+        <nav class="nav">
+            <a href="#" class="nav__item nav--ads">
+                <i class="nav__icon"></i>
+                <span class="nav__label">Anúncios</span>
+            </a>
+            <a href="#" class="nav__item nav--new-ad">
+                <i class="nav__icon"></i>
+                <span class="nav__label">Novo Anúncio</span>
+            </a>
+        </nav>
+
+        <main class="main">
+            <div class="content">
+                <div class="col col-lt">
+                    <div class="filter" ng-class="{full : loaded}">
+                        <h2 class="filter__title">Filtro</h2>
+                        <form class="filter__items">
+                            <fieldset class="filter__items-container">
+                                <div class="filter__item">
+                                    <div class="filter__group">
+                                        <label class="filter__label">ID</label>
+                                        <input class="filter__field" type="text" ng-model="id" numeric-only>
+                                    </div>
+                                    <div class="filter__group">
+                                        <label class="filter__label">Área</label>
+                                        <input class="filter__field" type="text" ng-model="square" numeric-only>
+                                    </div>
+                                </div>
+                                <div class="filter__item">
+                                    <div class="filter__group">
+                                        <label class="filter__label">Quartos</label>
+                                        <input class="filter__field" type="text" ng-model="beds" numeric-only>
+                                    </div>
+                                    <div class="filter__group">
+                                        <label class="filter__label">Banheiros</label>
+                                        <input class="filter__field" type="text" ng-model="baths" numeric-only>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter--range">
+                                    <div class="filter__group">
+                                        <label class="filter__label">Valor</label>
+                                        <input class="filter__field filter--min" type="text" placeholder="Mínimo" ng-model="minVal" numeric-only>
+                                        <span class="filter__line"></span>
+                                        <input class="filter__field filter--max" type="text" placeholder="Máximo" ng-model="maxVal" numeric-only>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="col col-rt">
+                    <div class="result" ng-class="{full : loaded}">
+                        <div class="card-property-list">
+                            <article ng-repeat="ad in ads | startFrom:currentPage*pageSize | filter:q | limitTo:pageSize" class="card-property">
+                                <div class="card-property__image">
+                                    <img class="card-property__thumb" src="" alt="">
+                                    <div class="card-property__price">R$ {{ad.price | customCurrency}}</div>
+                                </div>
+                                <div class="card-property__content">
+                                    <header class="card-property__header">
+                                        <span class="card-property__id">ID. {{ad.id}}</span>
+                                        <h2 class="card-property__title">{{ad.title}}</h2>
+                                        <p class="card-property__description">{{ad.description}}</p>
+                                    </header>
+                                    <div class="card-property__actions">
+                                        <div class="card-property__item card-property--area">
+                                            <i class="card-property__icon"></i>
+                                            <span class="card-property__value">{{ad.squareMeters}} M²</span>
+                                        </div>
+                                        <div class="card-property__item card-property--room">
+                                            <i class="card-property__icon"></i>
+                                            <span class="card-property__value">{{ad.beds}} Quartos</span>
+                                        </div>
+                                        <div class="card-property__item card-property--bathroom">
+                                            <i class="card-property__icon"></i>
+                                            <span class="card-property__value">{{ad.baths}} Banheiros</span>
+                                        </div>
+                                        <a href="#" class="card-property__button">
+                                            <span class="label">Visualizar Anúncio</span>
+                                            <span class="arrow"> >> </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="pagination" ng-show="loaded">
+                            <div class="pagination__container">
+                                <a class="pagination__prev" ng-disabled="disablePrev" ng-click="navigatePage('prev')">
+                                    <span class="label">Anterior</span>
+                                    <span class="arrow"> < </span>
+                                </a>
+                                <a class="pagination__next" ng-disabled="disableNext" ng-click="navigatePage('next')">
+                                    <span class="label">Próximo</span>
+                                    <span class="arrow"> > </span>
+                                </a>
+                            </div>
+                            <div class="pagination__number">{{currentPage+1}} de {{numberOfPages()}} página (s)</div>
+                        </div>
+                    </div>
+                    <div class="load" ng-hide="loaded"></div>
+                </div>
+            </div>
+        </main>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
