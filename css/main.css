@@ -640,7 +640,7 @@ fieldset {
     }
 
     .filter--range .filter--min {
-        margin-bottom: 6px;
+        margin-bottom: 12px;
     }
 
     .card-property__actions {
