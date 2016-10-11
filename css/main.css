@@ -618,6 +618,7 @@ fieldset {
 
     .card-property__actions {
         height: auto;
+        padding: 10px;
     }
 
     .card-property__item, .card-property__button {
