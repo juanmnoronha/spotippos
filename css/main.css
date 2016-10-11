@@ -621,13 +621,22 @@ fieldset {
     }
 
     .filter__group {
-        padding: 12px 6px;
+        padding: 6px;
         width: 100%;
     }
 
     .filter__field {
         font-size: 12px;
         padding: 6px;
+    }
+
+    .filter--range .filter__field {
+        float: none;
+        width: 100%;
+    }
+
+    .filter--range .filter--min {
+        margin-bottom: 6px;
     }
 
     .card-property__actions {
