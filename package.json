@@ -22,7 +22,7 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "surge --project ./ --domain seemly-bait.surge.sh.surge.sh"
+      "pre-push": "surge --project ./ --domain seemly-bait.surge.sh"
     }
   }
 }
