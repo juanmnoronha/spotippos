@@ -624,8 +624,13 @@ fieldset {
         float: none;
     }
 
+    .card-property__item {
+        padding: 10px 6px;
+    }
+
     .card-property__button {
         margin: 0 auto;
+        width: 100%;
     }
 
     .card-property__value {
