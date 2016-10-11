@@ -620,6 +620,10 @@ fieldset {
         padding: 12px 14px;
     }
 
+    .filter__item {
+        padding: 12px 6px 16px 6px;
+    }
+
     .filter__group {
         padding: 6px;
         width: 100%;
