@@ -1,0 +1,28 @@
+{
+  "name": "spotippos",
+  "version": "1.0.0",
+  "description": "# Surge and Go Ahead!!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmnoronha/spotippos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanmnoronha/spotippos/issues"
+  },
+  "homepage": "https://github.com/juanmnoronha/spotippos#readme",
+  "devDependencies": {
+    "git-scripts": "^0.2.1",
+    "surge": "^0.18.0"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "surge --project ./ --domain seemly-bait.surge.sh.surge.sh"
+    }
+  }
+}
