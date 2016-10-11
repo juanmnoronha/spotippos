@@ -616,6 +616,20 @@ fieldset {
         padding: 19px 20px;
     }
 
+    .filter__title {
+        padding: 12px 14px;
+    }
+
+    .filter__group {
+        padding: 12px 6px;
+        width: 100%;
+    }
+
+    .filter__field {
+        font-size: 12px;
+        padding: 6px;
+    }
+
     .card-property__actions {
         height: auto;
         padding: 10px;
